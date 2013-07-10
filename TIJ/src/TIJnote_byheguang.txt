@@ -1,0 +1,153 @@
+Thinking in Java
+
+1.Introduction to Objects
+
+a.everything is an object
+a program is a bunch of objects telling each other what to do by sending message
+each object has its own memory made up of other objects
+every object has a type
+all objectsof a particular type can receive the same meessages
+object: has state, behavior and identity, means an object can have interbal data, methods, and each object can be uniquely distinguished from every other objects(each object has a unique address in memory)
+
+High Cohesion(the various aspects of a software component fits together well) and Low Coupling(every single object keep independently)
+
+Access control:
+public: the following element is available to everyone
+private: no one can access that element except the creator of th etype, inside methods of that types(otherwise a compile-time error.)
+protected: acts like private, except that an inheriting class has access to protected members, but not private members.
+
+Reuse the implementation: Your new class can be made up of any number and type of other objects, in any combination that you need to achieve the functionality desired in your new class. Because you are composing a new class from existing classes, this concept is called composition
+
+Inheritance: You create a base type to represent the core of your ideas about some objects in your system. From the base type, you derive other types to express the different ways that this core can be realized. 
+two method: 
+adding new method (islike-a relationship, the new tyoe has the interface of the old type but extend it)
+overriding old method (is-a relation, pure substitution is exactly the same type as the base class since it has exactly the smae interface)
+Interchangeable objects with polymorphism:
+late binding: when send a message to an object, the code being called isn't determined until run time, in java, dynamic binding is th edefault behavior
+upcasting: treating a derived type as though it were its base type
+
+The singly rooted hierarchy: All objects in a singly rooted hierarchy have an interface in common, so they are all ultimately the same fundamental type.  All objects can easily be created on the heap, and argument passing is greatly simplified.
+
+Container: will expand itself whenever necessary to accommodate everything you place inside it. eg.several different kinds of List classes (to hold sequences), Maps (also known as associative arrays, to associate objects with other objects), Sets (to hold one of each type of object), and more components such as queues, trees, stacks, etc.
+1. containers provide different types of interfaces and external behavior. 2. different containers has different efficiencies for centain operations
+
+Parameterized types (generics):containers held the one universal type in Java: Object. The singly rooted hierarchy means that everything is an Object, so a container that holds Objects can hold anything.6 This made containers easy to reuse.
+Object creation & lifetime:  With languages that allow objects to be created on the stack, the compiler determines how long the object lasts and can automatically destroy it. However, if you create it on the heap the compiler has no knowledge of its lifetime.  Java provides a feature called a garbage collector that automatically discovers when an object is no longer in use and destroys it. A garbage collector is much more convenient because it reduces the number of issues that you must track and the code you must write. 
+
+Exception handling: 
+Java’s exception handling stands out among programming languages, because in Java, exception handling was wired in from the beginning and you’re forced to use it. It is the single acceptable way to report errors. I
+
+2.Everything is an object
+You manipulate objects with references
+You must create all the objects
+
+where storage lives:
+registers:fastest storage, inside the processor, number limited, no direct control
+stack:live in RAM, but has direct support from the processor via its stack pointer, the stack pointer is moved down to create new memory and moved up to release that memory. This is an extremely fast and efficient way to allocate storage. The java system must know, the exact lifetime of all items that are stored on the stack, generally for object reference
+heap:in RAM, all java objects live here. unlike stack, the compiler does't need to know how long that storage must stay on the heap(more time to allocate and clean up heap storage than stack storage)
+constant storage: often placed directly in the program code
+non-RAM storage:data lives completely outside a program, it can exist while the program is not running, outside the control of the program. The two primary examples of this are streamed object, in which objects are turned into streams of bytes, generally to be sent to another machine, and persistent objects, in which the objects are placed on disk so they will hold their state even when the program is terminated. 
+
+Special case: primitive types:
+instead of creating the variable by using new, an “automatic” variable is created that is not a reference. The variable holds the value directly, and it’s placed on the stack, so it’s much more efficient.
+All numeric types are signed, so don’t look for unsigned types.
+The size of the boolean type is not explicitly specified; it is only defined to be able to take
+the literal values true or false.
+
+primitive type: Wrapper type
+The “wrapper” classes for the primitive data types allow you to make a non-primitive object
+on the heap to represent that primitive type. 
+boolean Boolean
+char Character
+byte Byte
+short Short
+int Integer
+long Long
+float Float
+double Double
+void Void
+
+high-precision numbers: 
+BigInteger and BigDecimal
+BigInteger supports arbitrary-precision integers. This means that you can accurately represent integral values of any size without losing any information during operations.
+BigDecimal is for arbitrary-precision fixed-point numbers; you can use these for accurate monetary calculations, for example.
+
+
+
+3.Operators
+4.Controlling Execution
+5.Initialization & Clearup
+6.Access Control
+7.Reuse Classes
+8.Polymorphism
+9.Interfaces
+10.Inner Classes
+11.Holding your objects
+12.Error handling with exceptions
+13.Strings
+14.Type Information
+15.Generics
+16.Arrays
+17.Containers in Depth
+18.I/O
+19.Enumerated Types
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
