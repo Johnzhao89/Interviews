@@ -107,6 +107,13 @@ compiling and running:
 to compile and run this program,  and all the other programs in this book, you must first have a Java programming environment.
 
 3.Operators
+At the lowest level, data in Java is manipulated using operators.
+An operator takes one or more arguments and produces a new value. The arguments are in a different form than ordinary method calls, but the effect is the same. Addition and unary plus (+), subtraction and unary minus (-), multiplication (*), division (/), and assignment (=) all work much the same in any programming language.
+side effect:some operators change the value of an operand. 
+assignment:
+if you say a = b for primitives, then the contents of b are copied into a. If you then go on to modify a, b is naturally unaffected by this modification. 
+When you assign objects, however, things change. Whenever you manipulate an object, what you’re manipulating is the reference, so when you assign “from one object to another,” you’re actually copying a reference from one place to another.
+aliasing:because assigned a referenc, two pointer pointing to the same object.
 
 
 4.Controlling Execution

@@ -88,7 +88,34 @@ import: tells the compiler to bring in a package, which is a library of classes.
 
 You don’t actually get an object until you create one using new, and at that point storage is allocated and methods become available.
 
+static: 1. if you want to have only a single piece of storage for a particular field, regardledd of how many objects of that class are created, or even if no objects are created. 2.you need a method that isn't associated with any particular object of this class
+static, it means that particular field or method is not tied to any particular object instance of that class. so even if you have never created an object of that class you can call a static method or access a static field. non-static fields and methos, you must create an object and use that object to access the field or method
+
+Using the class name is the preferred way to refer to a static variable/method. Not only does it emphasize that variable’s static nature, but in some cases it gives the compiler better opportunities for optimization.
+
+public class ShowProperties{
+	public static void main(String[] args){
+		//displays all of the “properties” from the system where you are running the program
+		System.getProperties().list(System.out);
+		System.out.println(System.getProperty("user.name"));
+		System.out.println(
+				System.getProperty("java.library.path"));
+	}
+}
+
+compiling and running:
+to compile and run this program,  and all the other programs in this book, you must first have a Java programming environment.
+
 3.Operators
+At the lowest level, data in Java is manipulated using operators.
+An operator takes one or more arguments and produces a new value. The arguments are in a different form than ordinary method calls, but the effect is the same. Addition and unary plus (+), subtraction and unary minus (-), multiplication (*), division (/), and assignment (=) all work much the same in any programming language.
+side effect:some operators change the value of an operand. 
+assignment:
+if you say a = b for primitives, then the contents of b are copied into a. If you then go on to modify a, b is naturally unaffected by this modification. 
+When you assign objects, however, things change. Whenever you manipulate an object, what you’re manipulating is the reference, so when you assign “from one object to another,” you’re actually copying a reference from one place to another.
+aliasing:because assigned a referenc, two pointer pointing to the same object.
+
+
 4.Controlling Execution
 5.Initialization & Clearup
 6.Access Control
