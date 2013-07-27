@@ -5,3 +5,19 @@ package CH4;
  * types, but in reversed order relative to each
  * other. Verify that this works.
  ************************************************/
+class Dog3 {
+	public void bark(int i, double d) {
+        System.out.println("int, double bark");
+      }
+      public void bark(double d, int i) {
+        System.out.println("double, int bark");
+      }
+}
+public class E06_SwappedArguments {
+    public static void main(String args[]) {
+      Dog3 dog = new Dog3();
+      dog.bark(1, 2.2);
+      dog.bark(2.2, 1);
+    }
+  }
+

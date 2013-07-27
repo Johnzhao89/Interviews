@@ -7,3 +7,13 @@ package CH4;
  * condition. In main(), test the possible
  * scenarios that can occur when you use Tank.
  ******************************************************/
+
+class Tank{
+	static int counter;
+	int id = counter++;
+	boolean full;
+	
+	public Tank(){
+		System.out.println("Tank "+id + "created");
+	}
+}

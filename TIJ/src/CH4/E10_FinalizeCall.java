@@ -5,3 +5,12 @@ package CH4;
  * of your class. Explain the behavior of your
  * program.
  ************************************************/
+
+public class E10_FinalizeCall {
+    protected void finalize() {
+      System.out.println("finalize() called");
+    }
+    public static void main(String args[]) {
+      new E10_FinalizeCall();
+}
+}
