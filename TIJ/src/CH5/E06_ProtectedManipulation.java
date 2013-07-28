@@ -4,3 +4,13 @@ package CH5;
  * second class in the same file with a method
  * that manipulates that protected data.
  ***********************************************/
+class WithProtected {
+    protected int i;
+}
+  public class E06_ProtectedManipulation {
+    public static void main(String args[]) {
+      WithProtected wp  = new WithProtected();
+      wp.i = 47;
+      System.out.println("wp.i = " + wp.i);
+    }
+  }

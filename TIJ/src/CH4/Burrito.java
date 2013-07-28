@@ -5,6 +5,9 @@ enum Spiciness{
 }
 public class Burrito{
 	Spiciness degree;
+	public Burrito(){
+		this.degree=Spiciness.NOT;
+	}
 	public Burrito(Spiciness degree){
 		this.degree = degree;
 	}

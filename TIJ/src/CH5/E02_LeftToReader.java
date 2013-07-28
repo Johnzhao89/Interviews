@@ -4,3 +4,8 @@ package CH5;
  * section into a program, and  verify that
  * collisions do in fact occur.
  ***********************************************/
+public class E02_LeftToReader {
+    public static void main(String args[]) {
+      System.out.println("Exercise left to reader");
+    }
+}
