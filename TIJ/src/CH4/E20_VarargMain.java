@@ -6,3 +6,8 @@ package CH4;
  * with various numbers of command-line
  * arguments.
  ************************************************/
+public class E20_VarargMain {
+    public static void main(String... args) {
+      E19_VarargStringArray.printStrings(args);
+    }
+  }
