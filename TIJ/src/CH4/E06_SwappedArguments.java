@@ -5,7 +5,7 @@ package CH4;
  * types, but in reversed order relative to each
  * other. Verify that this works.
  ************************************************/
-class Dog3 {
+class Cat {
 	public void bark(int i, double d) {
         System.out.println("int, double bark");
       }
@@ -15,7 +15,7 @@ class Dog3 {
 }
 public class E06_SwappedArguments {
     public static void main(String args[]) {
-      Dog3 dog = new Dog3();
+      Cat dog = new Cat();
       dog.bark(1, 2.2);
       dog.bark(2.2, 1);
     }

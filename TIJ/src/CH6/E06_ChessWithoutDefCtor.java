@@ -9,3 +9,14 @@ package CH6;
  * will remind you if you get it wrong.)
  * Use Chess.java to prove those assertions.
  ***********************************************/
+class ChessWithoutDefCtor extends BoardGame {
+    ChessWithoutDefCtor () {
+     super(11);
+     System.out.println("ChessWithoutDefCtor constructor");
+    }
+}
+  public class E06_ChessWithoutDefCtor {
+    public static void main(String args[]) {
+      new ChessWithoutDefCtor();
+    }
+}
