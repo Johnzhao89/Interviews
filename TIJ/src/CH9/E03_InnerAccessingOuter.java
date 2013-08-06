@@ -6,3 +6,23 @@ package CH9;
  * field. Create an object of type Inner and
  * display it.
  ***********************************************/
+class Outer2{
+	private final String data;
+	class Inner{
+		public String toString(){return data;}
+	}
+	Outer2(String data){this.data= data;}
+	Inner getInner(){return new Inner(); }
+}
+
+public class E03_InnerAccessingOuter{
+	public static void main(String[] args){
+		Outer2 o = new Outer2("inner accessing outer!");
+		Outer2.Inner i= o.getInner();
+		System.out.println(i.toString());
+	}
+}
+
+
+
+
