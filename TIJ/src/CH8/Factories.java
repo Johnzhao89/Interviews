@@ -11,14 +11,14 @@ interface ServiceFactory{
 
 class Implementation1 implements Service {
     Implementation1() {} // Package access
-    public void method1() {System.out.print("Implementation1 method1");}
-    public void method2() {System.out.print("Implementation1 method2");}
+    public void method1() {System.out.println("Implementation1 method1");}
+    public void method2() {System.out.println("Implementation1 method2");}
 }
 
 class Implementation2 implements Service {
     Implementation2() {} // Package access
-    public void method1() {System.out.print("Implementation2 method1");}
-    public void method2() {System.out.print("Implementation2 method2");}
+    public void method1() {System.out.println("Implementation2 method1");}
+    public void method2() {System.out.println("Implementation2 method2");}
 }
 
 class Implementation1Factory implements ServiceFactory {

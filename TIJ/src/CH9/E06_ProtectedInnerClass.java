@@ -9,3 +9,31 @@ package CH9;
  * inner class, upcasting to the interface during
  * the return.
  ***********************************************/
+interface SimpleInterface{
+	void f();
+}
+
+class SimpleClass{
+	protected class Inner implements SimpleInterface{
+		public Inner() {}
+		public void f() {}
+	}
+}
+
+public class E06_ProtectedInnerClass extends SimpleClass{
+	public SimpleInterface get(){
+		return new Inner();
+	}
+	public static void main(String[] args){
+		new E06_ProtectedInnerClass().get().f();
+	}
+}
+
+
+
+
+
+
+
+
+
