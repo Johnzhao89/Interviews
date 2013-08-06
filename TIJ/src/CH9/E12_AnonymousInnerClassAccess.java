@@ -1,18 +1,29 @@
 package CH9;
-/****************** Exercise 12 *****************
- * Repeat Exercise 7 using an anonymous inner
+
+/******************
+ * Exercise 12 ***************** Repeat Exercise 7 using an anonymous inner
  * class.
  ***********************************************/
-public class Parcel7{
-	public Contents contents(){
-		return new Contents(){
-			private int i= 11;
-			public int value(){return i;}
-		};
+
+public class E12_AnonymousInnerClassAccess {
+	private int i = 10;
+
+	private void f() {
+		System.out.println("E12_AnonymousInnerClassAccess.f");
 	}
-	public static void main(String[] args){
-		Parcel7 p = new Parcel7();
-		Contents c = p.contents());
+
+	public void h() {
+		new Object() {
+			void g() {
+				i++;
+				f();
+			}
+		}.g();
+		System.out.println("i = " + i);
+	}
+
+	public static void main(String args[]) {
+		E12_AnonymousInnerClassAccess ica = new E12_AnonymousInnerClassAccess();
+		ica.h();
 	}
 }
-

@@ -8,3 +8,28 @@ package CH9;
  * you return by making an anonymous inner
  * class inherit from the first class.
  ***********************************************/
+
+class NoDefault{
+	private int i;
+	public NoDefault(int i){
+		this.i = i;
+	}
+	public void f(){
+		System.out.println("NoDefault.f");
+	}
+}
+
+class Second{
+	public NoDefault get1(int i){
+		return new NoDefault(i){};
+	}
+	public NoDefault get2(int i){
+		return new NoDefault(i){
+			public void f(){
+				System.out.println("Second.get2.f");
+			}
+		};
+	}
+}
+
+
