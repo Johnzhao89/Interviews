@@ -20,6 +20,7 @@ public class E03_InnerAccessingOuter{
 		Outer2 o = new Outer2("inner accessing outer!");
 		Outer2.Inner i= o.getInner();
 		System.out.println(i.toString());
+		
 	}
 }
 
