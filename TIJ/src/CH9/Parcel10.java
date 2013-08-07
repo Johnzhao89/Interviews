@@ -1,7 +1,6 @@
 package CH9;
 
 public class Parcel10{
-	public class parcel10{
 		public Destination destination(final String dest, final float price){
 			return new Destination(){
 				private int cost;
@@ -18,5 +17,4 @@ public class Parcel10{
 		    Parcel10 p = new Parcel10();
 		    Destination d = p.destination("Tasmania", 101.395F);
 		  }
-	}
 }

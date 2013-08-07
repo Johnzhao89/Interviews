@@ -16,10 +16,9 @@ public class AnonymousConstructor{
 		};
 	}
 	public static void main(String[] args){
-		base base = getBase(47);
+		Base base = getBase(47);
 		base.f();
 	}
-	
 }
 
 

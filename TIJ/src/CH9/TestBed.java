@@ -6,7 +6,7 @@ public class TestBed{
 	}
 	public static class Tester{
 		public static void mian(String[] args){
-			TestBed t = new testBed();
+			TestBed t = new TestBed();
 			t.f();
 		}
 	}
