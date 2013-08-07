@@ -30,7 +30,6 @@ public class E07_TestList{
 		//lst.removeAll(subSet);
 		subSet.clear();
 		System.out.println("lst = " + lst);
-		
 	}
 }
 
