@@ -1,4 +1,5 @@
 package CH10;
+
 /****************** Exercise 25 *****************
  * Create a Map<String,ArrayList<Integer>>. Use
  * net.mindview.TextFile to open a text file and
@@ -10,3 +11,23 @@ package CH10;
  * in effect, the location in the file where that
  * word was found.
  ***********************************************/
+import java.util.*;
+
+public class E25_WordsInfo3 {
+	public static void main(String[] args) {
+		Map<String, ArrayList<Integer>> stat = 
+				new HashMap<String, ArrayList<Integer>>();
+		int wordCount = 0;
+
+		for (String word : new String[5]) {
+			ArrayList<Integer> loc = stat.get(word);
+			if (loc == null) {
+				loc = new ArrayList<Integer>();
+				stat.put(word, loc);
+			}
+			loc.add(++wordCount);
+			stat.put(word, loc);
+		}
+		System.out.println(stat);
+	}
+}
