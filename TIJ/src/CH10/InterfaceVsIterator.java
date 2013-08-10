@@ -17,7 +17,7 @@ public class InterfaceVsIterator{
 	        System.out.println();
 	}
 	
-	public sattic void main(String[] args){
+	public static void main(String[] args){
 		List<Pet> petList= Pets.arrayList(8);
 		Set<Pet> petSet = new HashSet<Pet>(petList);
 		Map<String,Pet> petMap = new LinkedHashMap<String,Pet>();

@@ -8,3 +8,19 @@ package CH11;
  * finally clause and print a message to prove
  * you were there.
  ***********************************************/
+
+public class E01_SimpleException{
+	public static void main(String[] args){
+		try{
+			throw new Exception("An exception in main");
+		}catch(Exception e){
+			System.out.println(
+	                 "e.getMessage() = " + e.getMessage());
+			e.printStackTrace(System.out);
+		}finally{
+			System.out.println("In finally clause");
+		}
+	}
+}
+
+
