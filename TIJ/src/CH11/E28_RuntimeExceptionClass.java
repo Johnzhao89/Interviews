@@ -5,3 +5,11 @@ package CH11;
  * that the compiler allows you to leave out the
  * try block.
  ***********************************************/
+class MyRuntimeException extends RuntimeException {
+    public MyRuntimeException(String s) { super(s); }
+}
+  public class E28_RuntimeExceptionClass {
+    public static void main(String args[]) {
+      throw new MyRuntimeException("MyRuntimeException msg");
+    }
+}
