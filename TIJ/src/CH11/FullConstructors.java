@@ -26,7 +26,7 @@ public class FullConstructors {
 		try {
 			f();
 		} catch (MyException e) {
-			e.printStackTrace();
+			e.printStackTrace(System.out);
 		}
 		try {
 			g();
