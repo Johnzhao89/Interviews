@@ -9,3 +9,17 @@ package CH15;
  * initialization works, and where dynamic aggregate
  * initialization is redundant.
  ************************************************/
+public class E01_ArrayInitialization {
+    static void hide(BerylliumSphere[] s) {
+      System.out.println("Hiding " + s.length + " sphere(s)");
+    }
+    public static void main(String[] args){
+    	hide(new BerylliumSphere[]{new BerylliumSphere(),
+                new BerylliumSphere()});
+    	BerylliumSphere[] d={new BerylliumSphere(),new BerylliumSphere(),new BerylliumSphere()};
+    	hide(d);
+    	BerylliumSphere[] a = new BerylliumSphere[]{
+                new BerylliumSphere(), new BerylliumSphere() };
+    	hide(a);
+    }
+}
