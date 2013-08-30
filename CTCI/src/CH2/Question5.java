@@ -1,5 +1,4 @@
 package CH2;
-import java.util.*;
 import CtCILibrary.*;
 
 // buggy, need further debug
