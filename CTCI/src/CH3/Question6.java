@@ -58,15 +58,8 @@ public class Question6 {
 		}
 
 		return reverseStack;
-		/*
-		 * while(left.size()>0||right.size()>0){ if(left.size()==0){
-		 * result.push(right.pop()); }else if(right.size()==0){
-		 * result.push(left.pop()); }else
-		 * if(right.peek().compareTo(left.peek())<=0){ result.push(right.pop());
-		 * }else{ result.push(left.pop()); } }
-		 * System.out.println("Result: "+result); return result;
-		 */
 	}
+
 
 	public static void main(String[] args) {
 		for (int k = 1; k < 2; k++) {
