@@ -155,6 +155,7 @@ public class BTree{
 		}
 	}
 	
+	//BST
 	public static boolean matchTree(BTree t1,BTree t2){
 		if(t1==null && t2 == null){
 			return true;
@@ -164,38 +165,157 @@ public class BTree{
 			return false;
 		}
 	}
-	
+	//BT
 	public static BTree leftMostNode(BTree node){
+		while(node.left!=null){
+			node = node.left;
+		}
+		return node;
 		
 	}
-	
+	//left root right
+	//find the root.value = k, if its right not null, return leftmost child of its right child
+	//if right child is null,find last parent, which root is in its left subtree
 	public static BTree inorderSuc(BTree root, int k){
-		
+		if(root == null)
+			return null;
+		if(root.value == k){
+			if(root.right != null)
+				return leftMostNode(root.right);
+			else{// find last parent , which root is in its left subtree
+				BTree parent = root.parent;
+				BTree tmp = root;
+				while(parent!=null){
+					if(parent.left == tmp)
+						return parent;
+					else {
+						tmp = parent;
+						parent = parent.parent;
+					}
+				}
+				return parent;
+			}
+		}else{
+			BTree lnode = inorderSuc(root.left,k);
+			BTree rnode = inorderSuc(root.right, k);
+			return (lnode!=null)? lnode:rnode;
+		}
 	}
 	
+	//root left right
+	//if root has a left child, return it, else if root has a right child, return it 
+	// if root has no children, then we need to find the parent which tmp is its 
+	//leftchild and right child not null, then return its right child
 	public static BTree preOrderSuc(BTree node, int k){
-		
+		if(node == null)
+			return null;
+		if(node.value == k){
+			if(node.left != null)
+				return node.left;
+			else if(node.right != null)
+				return node.right;
+			else{
+				BTree tmp = node;
+				BTree parent = node.parent;
+				// find the tmp at the right side 
+				while(parent != null){
+					if(parent.left != tmp){
+					tmp = parent;
+					parent = parent.parent;
+					}else{
+						if(parent.right!=null)
+							return parent.right;
+						else{
+							tmp = parent;
+							parent = parent.parent;
+						}
+					}
+				}
+				return parent;
+			}
+		}else{
+			BTree lnode = preOrderSuc(node.left,k);
+			BTree rnode = preOrderSuc(node.right,k);
+			return (lnode != null)? lnode :rnode;
+		}
 	}
 	
+	//left right root
+	// when found the node.value ==k, check parent, if null, return null, 
+	//if node is left child and right child not null, return right child,
+	//if node is left child and right child is null, return parent
+	//if node is right child, return parent;
 	public static BTree postOrderSuc(BTree node, int k){
-		
+		if(node == null){
+			return null;
+		}
+		if(node.value == k){
+			BTree parent= node.parent;
+			if(parent!=null){
+				if(parent.left == node){
+					if(parent.right != null)
+						return parent.right;
+					else
+						return parent;
+				}else
+					return parent;
+			}else
+				return null;
+		}else{
+			BTree lnode = postOrderSuc(node.left, k);
+			BTree rnode = postOrderSuc(node.right, k);
+			return (lnode != null)? lnode:rnode;
+		}
 	}
 	
 	public static BTree commonRoot(BTree root, BTree p, BTree q){
-		
-	}
-	
-	public static void findAllPathSum(BTree root, int k,  ArrayList<BTree>p, ArrayList<ArrayList<BTree>> all){
-		
-	}
-	
-	public static ArrayList<ArrayList<BTree>> findAllPathSum(BTree root, int k){
-		
+		if(root == null)
+			return null;
+		if(root==q || root == p){
+			return root;
+		}
+		boolean pleft = coverNode(root.left, p);
+		boolean qleft = coverNode(root.left, q);
+		if(pleft!= qleft)
+			return root;
+		BTree childTree= pleft? root.left: root.right;
+		return commonRoot(childTree, p, q);
 	}
 	
 	public static boolean coverNode(BTree root, BTree p){
-		
+		if(root == null){
+			return false;
+		}else if(root == p){
+			return true;
+		}else {
+			return coverNode(root.left,p)||coverNode(root.right,p);
+		}	
 	}
+	
+	public static void findAllPathSum(BTree root, int k,  ArrayList<BTree>p, ArrayList<ArrayList<BTree>> all){
+		if(root == null)
+			return;
+		ArrayList<BTree> path = new ArrayList<BTree>(p);
+		path.add(root);
+		int sum =0;
+		for(BTree node: path){
+			sum+= node.value;
+		}
+		if(sum == k){
+			all.add(new ArrayList<BTree>(path));
+		}
+		findAllPathSum(root.left, k, path, all);
+		findAllPathSum(root.right, k, path, all);
+	}
+	
+	public static ArrayList<ArrayList<BTree>> findAllPathSum(BTree root, int k){
+		ArrayList<ArrayList<BTree>> all = new ArrayList<ArrayList<BTree>>();
+		ArrayList<BTree> path = new ArrayList<BTree>();
+		findAllPathSum(root, k, path ,all);
+		return all;
+	}
+	
+	
 	
 	
 }
