@@ -281,7 +281,19 @@ public class BTree{
 		BTree childTree= pleft? root.left: root.right;
 		return commonRoot(childTree, p, q);
 	}
-	
+	// BST good one
+	public static BTree k_smallest_element(BTree root, int k){
+		if(k> treeSize(root))
+			return null;
+		int i = treeSize(root.left);
+		if(i == k - 1)
+			return root;
+		else if(i > k -1)
+			return k_smallest_element(root.left,k);
+		else
+			return k_smallest_element(root.right, k-i-1);
+	}
+			
 	public static boolean coverNode(BTree root, BTree p){
 		if(root == null){
 			return false;
@@ -314,6 +326,8 @@ public class BTree{
 		findAllPathSum(root, k, path ,all);
 		return all;
 	}
+	
+	
 	
 	
 	
