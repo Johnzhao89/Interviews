@@ -17,7 +17,7 @@ import java.util.*;
 
 public class HashSet extends AbstractSet{
 	
-	private Node[] buckets;
+	private static Node[] buckets;
 	private int size;
 	public static final int DEFAULT_SIZE = 997;
 	
@@ -83,14 +83,14 @@ public class HashSet extends AbstractSet{
 	}
 	
 	public Iterator iterator(){
-		return HashSetIterator();
+		return new HashSetIterator();
 	}
 	
 	public int size(){
 		return size;
 	}
 	
-	class HashSetIterator implements Iterator{
+	static class HashSetIterator implements Iterator{
 		private int bucket;
 		private Node current;
 		private int previousBucket;

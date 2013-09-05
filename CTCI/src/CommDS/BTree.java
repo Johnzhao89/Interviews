@@ -254,7 +254,7 @@ public class BTree{
 			if(parent!=null){
 				if(parent.left == node){
 					if(parent.right != null)
-						return parent.right;
+						return leftMostNode(parent.right);
 					else
 						return parent;
 				}else
