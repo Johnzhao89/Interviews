@@ -29,7 +29,6 @@ public class HeapSort extends AbstractSort {
 				} else {
 					swap(array, temp, leftChild);
 					temp = leftChild;
-
 				}
 			} else {
 				if ((rightChild <= end) && (array[temp] < array[rightChild])) {
