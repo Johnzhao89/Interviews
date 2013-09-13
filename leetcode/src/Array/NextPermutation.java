@@ -14,8 +14,6 @@ Here are some examples. Inputs are in the left-hand column and its corresponding
 import java.util.*;
 public class NextPermutation{
 	public void nextPermutation(int[] num) {
-        // Start typing your Java solution below
-        // DO NOT write main() function
         if(num == null || num.length < 2)
         	return;
         if(num.length == 2){
@@ -23,34 +21,21 @@ public class NextPermutation{
         	 return;
         }
         //find first Smaller
-        int i, j=0;
-        for(i = num.length-1; i > 0; i--){
-        	j = i-1;
-        	while(j >= 0){
-        		if(num[i] < num[j])
-        			j--;
-        		else{
-        			swap(num, i, j);
-        			break;
-        		}
-        	}
-        }
-        if(i == 0){
-        	Arrays.sort(num);
-        	return ;
-        }
-        for(int k =j+1; k <num.length; k++){
-        	for(int p = num.length-1; p>k; p--){
-        		if(num[p]< num[k])
-        			swap(num, k, j);
-        	}
-        }
-        return;
+       for(int i=num.length -1; i>=0; i--){
+    	   for(int j= i-1; j>=0; j--){
+    		   if(num[j] < num[i]){
+    		   swap(num, i, j);
+    		   Arrays.sort(num, j+1, num.length);
+    		   return;
+    		   }
+    	   }
+       }
+       Arrays.sort(num);
     }
-	
 	public void swap(int[] num, int a, int b){
 		int tmp = num[a];
 		num[a] = num[b];
 		num[b] = tmp;
 	}
+
 }
