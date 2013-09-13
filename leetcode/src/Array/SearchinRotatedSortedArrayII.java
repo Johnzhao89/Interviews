@@ -8,10 +8,10 @@ What if duplicates are allowed?
 Would this affect the run-time complexity? How and why?
 Write a function to determine if a given target is in the array.
 */
-
+// passed
 public class SearchinRotatedSortedArrayII{
 	public static boolean search(int[] A, int target){
-		if(A == null)
+    	if(A == null)
 			return false;
 		if(A.length == 0)
 			return false;
@@ -29,7 +29,7 @@ public class SearchinRotatedSortedArrayII{
 			else
 				return search(A, mid+1, end, target);
 		}else if(A[mid] < A[start]){
-			if(A[mid]< target && target< A[end]){
+			if(A[mid]< target && target<= A[end]){
 				return search(A, mid+1, end, target);
 			}else
 				return search(A, start, mid-1,target);
