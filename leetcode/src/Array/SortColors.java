@@ -9,12 +9,13 @@ You are not suppose to use the library's sort function for this problem.
  *
  */
 public class SortColors{
-	//not work, buggy
+	
 	public void sortColors(int[] A) {
 		if(A.length <=1 )
 			return;
 		
 		int s = 0;
+		
 		int e = A.length -1;
 		int t = 0;
 		while(s <= e){
