@@ -10,7 +10,7 @@ You may assume no duplicate exists in the array.
 
 public class SearchInRotatedSortedArray{
 	public static int search(int A[], int target){
-        if(A == null|| A.length ==0)
+        if(A == null|| A.length == 0)
 			return -1;
 		return search(A, 0,A.length-1, target);
 	}
@@ -23,7 +23,7 @@ public class SearchInRotatedSortedArray{
 			return -1;
 		if(a[start] <= a[mid]){// left is normal order
 			if(a[start] <= target && target <= a[mid]){
-				return search(a,start, mid-1, target);
+				return search(a, start, mid-1, target);
 			}else{
 				return search(a, mid+1, end, target);
 			}

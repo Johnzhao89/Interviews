@@ -4,13 +4,14 @@ package CH8;
  * @author heguangliu
  *
  */
+import java.util.*;
 class OnlineReaderSystem{
 	private Library library;
 	private UserManager userManager;
 	private Display display;
-	public getLibrary(){}
-	public getUserManager(){}
-	public getDisplay(){}
+	public Library getLibrary(){}
+	public UserManager getUserManager(){}
+	public Display getDisplay(){}
 }
 class Library{
 	private HashMap<Integer, Book> books;

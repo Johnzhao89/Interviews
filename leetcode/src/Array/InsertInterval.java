@@ -9,6 +9,8 @@ Given intervals [1,3],[6,9], insert and merge [2,5] in as [1,5],[6,9].
  * @author heguangliu
  *
  */
+
+// try binary search
 import java.util.*;
 
 public class InsertInterval{

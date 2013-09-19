@@ -30,21 +30,16 @@ public class SubSet {
 		}
 		Arrays.sort(S);
 		result.add(new ArrayList<Integer>());
-		ArrayList<Integer> b= new ArrayList<Integer>();
-		b.add(S[0]);
-		result.add(b);
-		for (int i = 1; i < S.length; i++) {
+
+		for (int i = 0; i < S.length; i++) {
 			ArrayList<ArrayList<Integer>> temp = new ArrayList<ArrayList<Integer>>();
 			for (ArrayList<Integer> a : result) {
-				a.add(S[i]);
-				temp.add(a);
+				ArrayList<Integer> newSet = new ArrayList<Integer>(a);
+				newSet.add(S[i]);
+				temp.add(newSet);
 			}
 			result.addAll(temp);
 		}
 		return result;
-	}
-	
-	public static void main(String[] args){
-		subsets(new int[]{-1, 1, 2});
 	}
 }
