@@ -80,7 +80,6 @@ public class NQueensII{
 	        pos = pos-p;
 	        dfs(row+p,(ld+p)<<1,(rd+p)>>1);
 	    }
-
 	}
 	public static void main(String[] args){
 	    //System.out.println(totalNQueens(8));

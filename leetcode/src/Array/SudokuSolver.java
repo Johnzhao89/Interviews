@@ -61,6 +61,7 @@ public class SudokuSolver{
 	 }
 	 
 	 boolean[][] row, col, grid;
+	 
 	 // another method
 	 public void solveSudoku2(char[][] board){
 		 row = new boolean[9][10];

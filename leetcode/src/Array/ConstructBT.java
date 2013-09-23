@@ -14,10 +14,8 @@ import java.util.*;
   }
  
 public class ConstructBT{
-	//left root right  left right root
+	//left root right  left right root Helper prefered
 	public TreeNode buildTree(int[] inorder, int[] postorder) {
-        // Start typing your Java solution below
-        // DO NOT write main() function
         if(inorder.length == 0)
         	return null;
         TreeNode root = new TreeNode(postorder[postorder.length-1]);
