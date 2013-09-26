@@ -16,11 +16,21 @@ class ListNode {
 		val = x;
 		next = null;
 	}
+	
+	public String toString(){
+		ListNode curr = this;
+		String result="";
+		while(curr!=null){
+			result +=(curr.val+"->");
+			curr= curr.next;
+		}
+		return result;
+	}
 }
 
 public class MergeTwoSortedLists {
 	// reorganize better than insert
-	public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+	public ListNode mergeTwoLists2(ListNode l1, ListNode l2) {
 		// Start typing your Java solution below
 		// DO NOT write main() function
 		ListNode head = null, pre = null, node=null;
@@ -50,4 +60,5 @@ public class MergeTwoSortedLists {
 		else
 			return l2;
 	}
+	
 }

@@ -14,6 +14,25 @@ public class PartitionList{
 	public ListNode partition(ListNode head, int x) {
         // Start typing your Java solution below
         // DO NOT write main() function
-        
+        if(head==null)
+        	return null;
+        ListNode start1 = new ListNode(0);
+        ListNode start2 = new ListNode(x);
+        ListNode tail1=start1, tail2=start2;
+        ListNode iter=head;
+        while(iter!=null){
+        	ListNode next = iter.next;
+        	if(iter.val <x){
+        		tail1.next = iter;
+        		tail1 = iter;
+        	}else{
+        		tail2.next = iter;
+        		tail2 = iter;
+        		tail2.next =null;
+        	}
+        	iter = next;
+        }
+        tail1.next = start2.next;
+        return start1.next;
     }
 }

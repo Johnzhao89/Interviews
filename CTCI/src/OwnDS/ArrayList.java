@@ -56,18 +56,6 @@ public class ArrayList<T> {
 		StringBuffer res = new StringBuffer("[");
 		for (int i = 0; i < this.size() - 1; i++)
 			res.append(this.get(i).toString()).append(",");
-		return res.append(get(size() - 1).toString()).append("[").toString();
+		return res.append(get(size() - 1).toString()).append("]").toString();
 	}
-
-	public static void main(String argu[]) {
-		java.util.Scanner sc = new java.util.Scanner(System.in);
-		String line;
-		ArrayList<String> v = new ArrayList<String>();
-		while (sc.hasNext())
-			v.add(sc.next());
-		for (int i = v.size() - 1; i >= 0; i--)
-			System.out.println(v.get(i));
-		System.out.println(v);
-	}
-
 }
