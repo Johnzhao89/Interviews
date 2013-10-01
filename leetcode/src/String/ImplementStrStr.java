@@ -47,7 +47,6 @@ public class ImplementStrStr{
             if(k == needle.length() - 1)     //k is index, so it's k == needle.length() - 1, not k == needle.length().
                 return haystack.substring(i - k); // i is index, k is index, so can do subtract operation .
         }
-        
         return null;     
     }
     //find the last position in [0..i-1] that have an overlapping prefix

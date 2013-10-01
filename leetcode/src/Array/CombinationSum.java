@@ -19,6 +19,9 @@ A solution set is:
 import java.util.*;
 
 public class CombinationSum{
+	// use a hashmap<Integer, ArrayList<ArrayList<Integer>>> map
+	//from i = 1 to target, for int c: cans, if i==c, push, else if i> c map.get(i-c), if not null, add c to the end of all set
+	//if v.size()>0 push entry back
 	// forward DP
 	public ArrayList<ArrayList<Integer>> combinationSum(int[] candidates, int target) {
         // Start typing your Java solution below
@@ -57,7 +60,9 @@ public class CombinationSum{
         return map.get(target);
     }
 	
-	// DFS good choice, this idea is used widely
+	// backtrack good choice, this idea is used widely
+	// sort first, result, arraylist, array, target, position, try from position to the end, add then remove
+	// tmp is one try use array 0-pos, make sum = total- target 
 	public ArrayList<ArrayList<Integer>> combinationSum2(int[] candidates, int target) {
 		Arrays.sort(candidates);
 		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();

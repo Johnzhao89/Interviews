@@ -5,14 +5,16 @@ import java.util.*;
 //passed
 public class MedianOfTwoSortedArrays {
 	public double findMedianSortedArrays(int A[], int B[]){
-		if((A.length+B.length)%2==0){
+		if((A.length+B.length)%2==0){//if even number 
 			return (findMedianSortedArrays(A, B, (A.length + B.length) / 2) + findMedianSortedArrays(
 					A, B, (A.length + B.length) / 2 + 1)) / 2;
-		}else{
+		}else{//if odd
 			return findMedianSortedArrays(A, B, (A.length + B.length) / 2 + 1);
 		}
 	}
-	// find kth number in A||B, clear! show on picture
+	
+	// find kth smallest number in A||B, clear! show on picture
+	// find larger median, eg a, if a/2+b/2+1>=k,eliminate a' bottom half, else eliminate b' first half; 
 	public double findMedianSortedArrays(int A[], int B[], int k){
 		if(A.length==0)
 			return B[k-1];
@@ -20,6 +22,7 @@ public class MedianOfTwoSortedArrays {
 			return A[k-1];
 		if(k==1)
 			return Math.min(A[0], B[0]);
+		
 		if(A[A.length/2]>=B[B.length/2]){
 			if(A.length/2+ B.length/2+1 >=k){
 				return findMedianSortedArrays(Arrays.copyOf(A, A.length / 2),B, k);
@@ -34,4 +37,5 @@ public class MedianOfTwoSortedArrays {
 			}
 		}
 	}
+	
 }

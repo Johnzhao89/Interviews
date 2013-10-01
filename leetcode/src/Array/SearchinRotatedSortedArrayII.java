@@ -17,6 +17,7 @@ public class SearchinRotatedSortedArrayII{
 			return false;
 		return search(A, 0, A.length-1,target);
 	}
+	// array, start, end target, check mid, then recursively find in half
 	public static boolean search(int[] A, int start, int end, int target){
 		int mid = (start+ end)/2;
 		if(A[mid]==target)

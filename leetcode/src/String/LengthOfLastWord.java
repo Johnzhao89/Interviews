@@ -10,6 +10,21 @@ return 5.
  * @author heguangliu
  *
  */
-public class lengtheOflastWord{
-	
+public class LengthOfLastWord{
+	public int lengthOfLastWord(String s) {
+        // Start typing your Java solution below
+        // DO NOT write main() function
+        if(s==null || s.isEmpty())
+        	return 0;
+        int j = s.length()-1;
+        while(s.charAt(j)==' ' && j>0){
+        	j--;
+        }
+        for(int i=j; i>=0; i--){
+        	if(s.charAt(i)==' '){
+        		return j-i;
+        	}
+        }
+        return j+1;
+    }
 }
