@@ -14,8 +14,8 @@ return [3, 4].
  */
 // passed
 public class SearchForRange{
-	
-	public int[] searchRange(int[] A, int target){
+	// bad version
+	public int[] searchRange2(int[] A, int target){
 		int n = A.length;
 		int start =0, end = n-1;
 		int[] result ={-1, -1};
@@ -41,75 +41,38 @@ public class SearchForRange{
 		}
 		return result;
 	}
-	// buggy version, but need furtehr modification
-	/*
+	//
 	public int[] searchRange(int[] A, int target) {
-		int result[] ={-1, -1};
-        if(A == null)
-        	return result;
-        if(A.length == 0)
-        	return result;
-        result[0]= findMinIndex(A, 0, A.length, target);
-        result[1]= findMaxIndex(A, 0, A.length, target);
+        // Start typing your Java solution below
+        // DO NOT write main() function
+        int[] invalid = {-1,-1};
+        if(A == null) return invalid;
+        int left =  searchLeft(0, A.length -1, A, target, true);
+        int right =  searchLeft(0, A.length -1, A, target, false);
+        int[] result = {left, right};
         return result;
     }
-	
-	public int findMinIndex(int A[], int start, int end, int target){
-		int mid=(start + end)/2;
-		if(start > end)
-			return -1;
-		if(A[mid] > target){
-			return findMinIndex(A, start, mid-1, target);
-		}else if(A[mid] < target){
-			return findMinIndex(A, mid+1, end, target);
-		}else{
-			if(mid==0){
-				return A[mid]==target? mid:-1;
-			}else if(A[mid]==target && A[mid-1]!=target){
+	// flag to distinguish the ways to deal with mid== target 
+    private int searchLeft(int i, int j, int[] A, int target, boolean left){
+		if(i>j) return -1;
+		int mid = (i+j) / 2;
+		if(A[mid] == target){
+			if( ((mid == i ||A[mid-1] < target) && left) || ((mid == j ||A[mid+1] > target) && !left)){
 				return mid;
 			}
-			end = mid-1 ;
-			mid = (start+ end)/2;		
-			int left =findMinIndex(A, start, mid-1, target);
-			if(left == -1){
-				if(A[mid]==target){
-					return mid;
-				}else{
-					int right = findMinIndex(A, mid+1, end, target);
-					return right==-1? end+1:right;
-				}
-			}else{
-				return left;
+			if((left)){
+				return searchLeft(i, mid - 1, A, target, left);
+			}
+			else{
+				return searchLeft(mid+1, j, A, target, left);
 			}
 		}
-	}
-	public int findMaxIndex(int A[], int start, int end, int target){
-		int mid=(start+end)/2;
-		if(start > end)
-			return -1;
-		if(A[mid] > target){
-			return findMaxIndex(A, start, mid-1, target);
-		}else if(A[mid] < target){
-			return findMaxIndex(A, mid+1, end, target);
-		}else{
-			if(mid == A.length-1){
-				return A[mid]==target? mid:-1;
-			}else if(A[mid]==target && A[mid+1]!=target){
-				return mid;
-			}
-			start = mid+1;
-			mid = (start + end)/2;
-			int right = findMaxIndex(A, mid+1, end, target);
-			if(right == -1){
-				if(A[mid]== target){
-					return mid;
-				}else{
-					int left = findMaxIndex(A, start, end, target);
-					return left==-1? start-1: left;
-				}
-			}else
-				return right;
+		else if(A[mid] > target){
+			return searchLeft(i, mid - 1, A, target, left);
+		}
+		else{ //(A[mid] < target)
+			return searchLeft(mid +1, j, A, target, left);
 		}
 	}
-	*/
+
 }

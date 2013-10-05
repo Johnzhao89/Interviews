@@ -14,7 +14,7 @@ public class SearchInRotatedSortedArray{
 			return -1;
 		return search(A, 0,A.length-1, target);
 	}
-	
+	// array, start, end, target , if a[mid] == target, return mid, end < start, return -1;
 	public static int search(int a[], int start, int end, int target){
 		int mid = (start + end)/2;
 		if(target == a[mid])
