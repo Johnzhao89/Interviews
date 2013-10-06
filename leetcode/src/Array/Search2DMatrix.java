@@ -51,4 +51,18 @@ public class Search2DMatrix{
 		}
 		return false;
 	}
+	// another way, treat as 1D array
+	public boolean searchMatrix2(int[][] matrix, int target) {  
+		   // treat the 2D matrix as a sorted 1D array and use binary search to find the target  
+		   int low = 0, high = matrix.length * matrix[0].length - 1;  
+		   while (low <= high) {  
+		     int mid = (low + high) / 2;  
+		     int row = mid / matrix[0].length, col = mid % matrix[0].length;  
+		     if (target == matrix[row][col]) return true;  
+		     else if (target < matrix[row][col]) high = mid - 1;  
+		     else low = mid + 1;  
+		   }  
+		   
+		   return false;  
+		 }  
 }

@@ -11,9 +11,7 @@ Write a function to determine if a given target is in the array.
 // passed
 public class SearchinRotatedSortedArrayII{
 	public static boolean search(int[] A, int target){
-    	if(A == null)
-			return false;
-		if(A.length == 0)
+    	if(A == null || A.length ==0)
 			return false;
 		return search(A, 0, A.length-1,target);
 	}

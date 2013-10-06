@@ -19,10 +19,34 @@ return
  * @author heguangliu
  *
  */
+import java.util.*;
 public class PathSumII{
 	public ArrayList<ArrayList<Integer>> pathSum(TreeNode root, int sum) {
         // Start typing your Java solution below
         // DO NOT write main() function
-        
+		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
+        if(root == null)
+        	return result;
+        ArrayList<Integer> path = new ArrayList<Integer>();
+        path.add(root.val);
+        pathSum(root, sum,root.val, path, result);
+        return result;
     }
+	private void pathSum(TreeNode root, int sum, int cost, ArrayList<Integer> path, ArrayList<ArrayList<Integer>> result){
+		if(root == null) return;
+		if(root.left==null && root.right == null){
+			if(cost == sum) result.add(path);
+			return; 
+		}
+		if(root.left!=null){
+			ArrayList<Integer> pathL = new ArrayList<Integer>(path);
+			pathL.add(root.left.val);
+			pathSum(root.left, sum, cost+root.left.val, pathL, result);
+		}
+		if(root.right!=null){
+			ArrayList<Integer> pathR = new ArrayList<Integer>(path);
+			pathR.add(root.right.val);
+			pathSum(root.right, sum, cost+root.right.val, pathR, result);
+		}
+	}
 }
