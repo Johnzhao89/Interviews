@@ -50,5 +50,15 @@ public class ValidateBinarySearchTree {
 		return true;
 	}
 	
+	private boolean validBSTRecur(TreeNode root, int low, int high) {
+	    if (root == null)  return true;
+	    if (root.val < low || root.val > high)  return false;
+	      return (validBSTRecur(root.left, low, root.val-1) && validBSTRecur(root.right, root.val+1, high));
+	 }
+
+	 public boolean isValidBST2(TreeNode root) {
+	   return validBSTRecur(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+	 }
+	
 	
 }

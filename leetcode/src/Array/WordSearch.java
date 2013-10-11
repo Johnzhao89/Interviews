@@ -51,4 +51,46 @@ public class WordSearch {
 			return false;
 		}
 	}
+	
+	// Preprocess map one
+	public boolean exist2(char[][] board, String word){
+		HashMap<Character, ArrayList<Integer>> map = preprocess(board);
+		if(!map.containsKey(word.charAt(0))) return false;
+		boolean[] visited = new boolean[board.length*board[0].length];
+		for(int node: map.get(word.charAt(0))){
+			if(expand(map, node, visited, word,1, board[0].length)) return true;
+		}
+		return false;
+	}
+	
+	private boolean expand(HashMap<Character, ArrayList<Integer>> map, int preNode, boolean[] visited, String word, int cur, int m){
+		if(cur == word.length()) return true;
+		if(!map.containsKey(word.charAt(cur))) return false;
+		visited[preNode] = true;
+		for(int node: map.get(word.charAt(cur))){
+			if(!visited[node] && isAdjacent(preNode, node, m)&& expand(map, node, visited, word, cur+1, m))
+				return true;
+		}
+		visited[preNode] = false;
+		return false;
+	}
+	private HashMap<Character, ArrayList<Integer>> preprocess(char[][] board){
+		HashMap<Character, ArrayList<Integer>> map = new HashMap<Character, ArrayList<Integer>>();
+		for(int i=0; i<board.length; i++){
+			for(int j=0; j<board[0].length; j++){
+				if(!map.containsKey(board[i][j])){
+					map.put(board[i][j], new ArrayList<Integer>());
+				}
+				map.get(board[i][j]).add(i*board[0].length+j);
+			}
+		}
+		return map;
+	}
+	
+	private boolean isAdjacent(int n1, int n2, int m){
+		int min = Math.min(n1, n2), max = Math.max(n1, n2);
+		return ((max-min)==m || (max-min==1 && (max%m)!=0));
+	}
+	
+	
 }

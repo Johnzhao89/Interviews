@@ -23,6 +23,7 @@ public class PermutationII{
 	        Arrays.sort(num);
 	        return perm(num, 0, new boolean[num.length]);
 	 }
+	 
 	 public ArrayList<ArrayList<Integer>> perm(int[] num, int count, boolean[] used){
 		 ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
 		 if(count == num.length)

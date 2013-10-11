@@ -12,7 +12,6 @@ class TreeNode {
 	int val;
 	TreeNode left;
 	TreeNode right;
-
 	TreeNode(int x) {
 		val = x;
 	}
@@ -26,6 +25,7 @@ public class BalancedBinaryTree {
 
 	}
 
+	//O(n) O(logn)
 	public int checkHeight(TreeNode root) {
 		if (root == null) {
 			return 0;

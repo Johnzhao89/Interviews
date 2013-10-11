@@ -10,6 +10,7 @@ package Tree;
  * example, Given the following perfect binary tree, 1 / \ 2 3 / \ / \ 4 5 6 7
  * After calling your function, the tree should look like: 1 -> NULL / \ 2 -> 3
  * -> NULL / \ / \ 4->5->6->7 -> NULL
+ * 
  * @author heguangliu
  * 
  */
@@ -17,6 +18,7 @@ package Tree;
 class TreeLinkNode {
 	int val;
 	TreeLinkNode left, right, next;
+
 	TreeLinkNode(int x) {
 		val = x;
 	}
@@ -27,11 +29,13 @@ public class PopulatingNextRightPointersInEachNode {
 		// Start typing your Java solution below
 		// DO NOT write main() function
 		TreeLinkNode first = root;
-		while(first!=null){
+		while (first != null) {
 			TreeLinkNode cur = first;
-			while(cur!=null){
-				if(cur.left!=null) cur.left.next = cur.right;
-				if(cur.right!=null && cur.next!=null) cur.right.next = cur.next.left;
+			while (cur != null) {
+				if (cur.left != null)
+					cur.left.next = cur.right;
+				if (cur.right != null && cur.next != null)
+					cur.right.next = cur.next.left;
 				cur = cur.next;
 			}
 			first = first.left;

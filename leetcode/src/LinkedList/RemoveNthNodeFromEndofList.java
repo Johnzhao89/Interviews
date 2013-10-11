@@ -14,6 +14,7 @@ Try to do this in one pass.
  * @author heguangliu
  *
  */
+//dummy(0)
 public class RemoveNthNodeFromEndofList{
 	 public ListNode removeNthFromEnd(ListNode head, int n) {
 	        // Start typing your Java solution below

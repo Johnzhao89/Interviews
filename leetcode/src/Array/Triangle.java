@@ -14,6 +14,7 @@ import java.util.ArrayList;
  * 
  */
 public class Triangle {
+	//DP
 	//another array
 	public int minimumTotal(ArrayList<ArrayList<Integer>> triangle) {
 		if(triangle.size() == 1)

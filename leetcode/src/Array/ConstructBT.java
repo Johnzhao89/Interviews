@@ -16,14 +16,19 @@ import java.util.*;
 public class ConstructBT{
 	//left root right  left right root Helper prefered
 	public TreeNode buildTree(int[] inorder, int[] postorder) {
-        if(inorder.length == 0)
-        	return null;
-        TreeNode root = new TreeNode(postorder[postorder.length-1]);
-        int i = inorder.length -1;
-        for (; inorder[i] != root.val; i--)
-            ;
-        root.right = buildTree(Arrays.copyOfRange(inorder, i + 1, inorder.length), Arrays.copyOfRange(postorder, i, postorder.length - 1));
-        root.left = buildTree(Arrays.copyOfRange(inorder, 0,i), Arrays.copyOfRange(postorder, 0,i));
-        return root;
-    }
+	    if(inorder == null || postorder == null) return null;
+	    if(inorder.length == 0 || inorder.length != postorder.length) return null;
+	    return build(inorder, 0, inorder.length - 1, postorder, 0, postorder.length - 1);
+	}
+	public TreeNode build(int[] in, int start1, int end1, int[] post, int start2, int end2){
+	    if(start1 > end1 || start2 > end2) return null;
+	    int val = post[end2];
+	    TreeNode cur = new TreeNode(val);
+	    int k = start1;
+	    for(; k <= end1; k++) 
+	         if(val == in[k]) break;
+	    cur.right = build(in, k + 1, end1, post, end2 - end1 + k, end2 - 1);
+	    cur.left = build(in, start1, k - 1, post, start2, end2 - end1 + k - 1);
+	    return cur;
+	}
 }

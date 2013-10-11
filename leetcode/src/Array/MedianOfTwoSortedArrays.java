@@ -4,7 +4,7 @@ package Array;
 import java.util.*;
 //passed
 public class MedianOfTwoSortedArrays {
-	public double findMedianSortedArrays(int A[], int B[]){
+	public double findMedianSortedArrays2(int A[], int B[]){
 		if((A.length+B.length)%2==0){//if even number 
 			return (findMedianSortedArrays(A, B, (A.length + B.length) / 2) + findMedianSortedArrays(
 					A, B, (A.length + B.length) / 2 + 1)) / 2;
@@ -37,5 +37,6 @@ public class MedianOfTwoSortedArrays {
 			}
 		}
 	}
+	
 	
 }
